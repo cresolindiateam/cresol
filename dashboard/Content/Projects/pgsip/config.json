@@ -1,0 +1,207 @@
+﻿{
+  "defaultMapDataLimit": 5000, // Number of records for map display: range 1000 - 30000, default 5000
+
+  "defaultMapConfig": {
+    "markerScale": 100, // set the default scale for the 10px x 10px marker icons as a persentage from 5-120% in 5% increments. Default is 100%
+    "defaultMapDataClustering": false, // show clustered data (true (default)) or individual points (false) [Sai]turned it to false for custom legends to show up
+    "defaultMapGraticle": false, // show graticle on map (default is false)
+
+    "plotHeaders": {
+      "defaultLegend": "default", // "default" or "ghi"
+      "defaultGeometry": "Point", // "All", "Point" (default) or "Polygon"
+      "labelPrefix": "Show sample plots", // default is  "Show sample plots"
+      "recordLabel": "Sample Plot", // default is "Sample Plot"
+      "defaultColour": "Yellow", // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Yellow"
+      "highlightColour": "Orange" // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Orange"
+    },
+    "plotDataRecords": {
+      "defaultLegend": "default", // "default", "llcheck", "star", "iucn" or "ghi"
+      "defaultGeometry": "Point", // "All", "Point" (default) or "Polygon"
+      "labelPrefix": "Show sample data records", // default is  "Show sample data records"
+      "recordLabel": "Sample Plot Data Record", // default is "Sample Plot Data Record"
+      "defaultColour": "Red", // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Red"
+      "highlightColour": "Pink" // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Pink"
+    },
+    "specimens": {
+      "defaultLegend": "default", // "default", "llcheck", "star", "iucn"  or "ghi"
+      "defaultGeometry": "Point", // "All", "Point" (default) or "Polygon"
+      "labelPrefix": "Show botanical records", // default is  "Show botanical records"
+      "recordLabel": "Botanical Record", // default is "Botanical Record"
+      "defaultColour": "Red", // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Red"
+      "highlightColour": "Pink" // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Pink"
+    },
+    "seedAccessions": {
+      "defaultLegend": "default", // "default", "llcheck", "star", "iucn"  or "ghi"
+      "defaultGeometry": "Point", // "All", "Point" (default) or "Polygon"
+      "labelPrefix": "Show seed accessions", // default is  "Show seed accessions"
+      "recordLabel": "Seed accessions", // default is "Seed accessions"
+      "defaultColour": "Red", // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Red"
+      "highlightColour": "Pink" // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Pink"
+    },
+    "gardenPlants": {
+      "defaultLegend": "default", // "default", "llcheck", "star", "iucn"  or "ghi"
+      "defaultGeometry": "Point", // "All", "Point" (default) or "Polygon"
+      "labelPrefix": "Show garden plant locations", // default is  "Show garden plant locations"
+      "recordLabel": "Garden Plant Record", // default is "Garden Plant Record"
+      "defaultColour": "Yellow", // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Yellow"
+      "highlightColour": "Orange" // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Orange"
+    },
+    "livingCollections": {
+      "defaultLegend": "default", // "default", "llcheck", "star", "iucn"  or "ghi"
+      "defaultGeometry": "Point", // "All", "Point" (default) or "Polygon"
+      "labelPrefix": "Show wild plant origins", // default is  "Show wild plant origins"
+      "recordLabel": "Garden Plant Origin Record", // default is "Garden Plant Origin Record"
+      "defaultColour": "Red", // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Red"
+      "highlightColour": "Pink" // html colour or hex colour (e.g. "Red" or "#FF0000") default is "Pink"
+    },
+
+    "llCheckColours": {
+      "checkedRecord": "#006713", // default is "#006713"
+      "uncheckedRecord": "#FF2929" // default is "#FF2929"
+    },
+    "starColours": {
+      "BK": "Black", // default is "Black"
+      "GD": "Gold", // default is "Gold"
+      "BU": "Blue", // default is "Blue"
+      "GR": "Green", // default is "Green"
+      "NoStar": "Red" // default is "Red"
+    },
+    "iucnColours": {
+      "EX": "Black", // default is "Black"
+      "EW": "#542344", // default is "#542344" - purple-ish
+      "CR": "#D81E05", // default is "#D81E05" - red-ish
+      "EN": "#FC7F3F", // default is "#FC7F3F" - orange-ish
+      "VU": "#F9E814", // default is "#F9E814" - Yellow-ish
+      "NT": "#CCE226", // default is "#CCE226" - light-green-ish
+      "LC": "#60C659", // default is "#60C659" - green-ish
+      "DD": "#D1D1C6", // default is "#D1D1C6" - light-grey-ish
+      "NoIucn": "Blue" // default is "Blue"
+    },
+    "ghiColours": {
+      "band1": "#577CB6", // default is "#577CB6" for ghi < 50
+      "band2": "#8AB2AA", // default is "#8AB2AA" for ghi 50-99
+      "band3": "#C2E0A7", // default is "#C2E0A7" for ghi 100-149
+      "band4": "#E8F4B7", // default is "#E8F4B7"" for ghi 150-199
+      "band5": "#F6EAA5", // default is "#F6EAA5"" for ghi 200-249
+      "band6": "#E8BD72", // default is "#E8BD72"" for ghi 250-299
+      "band7": "#CD774A", // default is "#CD774A"" for ghi 300-399
+      "band8": "#B53928" // default is "#B53928"" for ghi > 399
+    }
+  },
+
+  // Left hand tree view visibility and search field labels/help text for empty search box
+  // note: the taxa tree view cannot be hidden and adding showTaxaTree: false would be ignored
+  "taxaTreeTitle": "Taxa", // default "Taxa"
+  "taxaTreeFilterFieldLabel": "Species Search", // default "Species Search"
+  "taxaTreeFilterEmptyText": "Enter Genus + Species...", // default "Enter Genus + Species..."
+  "taxaTreeRootText": "Families", // default "Families"
+
+  "showCharactersTree": false, // turn characters tree view display on/off - default false
+  "charactersTreeTitle": "Species Characters", // default "Species Characters"
+  "charactersTreeFilterFieldLabel": "Search Term", // default "Search Term"
+  "charactersTreeFilterEmptyText": "Enter keyword...", // default "Enter keyword..."
+  "charactersTreeRootText": "All", // default "All"
+
+  "showPlacesTree": false, // turn geo tree view display on/off - default true
+  "placesTreeTitle": "Geography", // default "Geography"
+  "placesTreeFilterFieldLabel": "Geo Search", // default "Geo Search"
+  "placesTreeFilterEmptyText": "Enter country...", // default "Enter country..."
+  "placesTreeRootText": "Countries", // default "Countries"
+
+  "showCollectorsTree": false, // turn collectors tree view display on/off - default true
+  "collectorsTreeTitle": "Collectors", // default "Collectors"
+  "collectorsTreeFilterFieldLabel": "Collector", // default "Collector",
+  "collectorsTreeFilterEmptyText": "Enter collector surname...", // default "Enter collector surname..."
+  "collectorsTreeRootText": "Collectors", // default "Collectors"
+
+  // Available DataRecordViewTypes are: 'TaxonRecordView' (default),'BotanicalRecordView', 'SpecimenRecordView', 'SeedAccessionRecordView', 'SeedTestRecordView', 'LivingRecordView', 'PlotHeaderRecordView'
+  "defaultTextRecordViewDataType": "TaxonRecordView",
+
+  //"defaultSorters" - Set a default grid sort for each DataRecordViewType here if required, multiple fields can be specified if required (see commented TaxonRecordView example for Family+Taxon+Homonym below)::
+  //    "TaxonRecordView": [
+  //        { direction: 'ASC', property: 'Family' },
+  //        { direction: 'ASC', property: 'Taxon' },
+  //        { direction: 'ASC', property: 'Homonym' }
+  //    ],
+
+  "defaultSorters": {
+    "TaxonRecordView": [
+      {
+        "direction": "ASC",
+        "property": "Id"
+      }
+    ],
+    "BotanicalRecordView": [
+      {
+        "direction": "ASC",
+        "property": "Id"
+      }
+    ],
+    "SpecimenRecordView": [
+      {
+        "direction": "ASC",
+        "property": "Id"
+      }
+    ],
+    "SeedAccessionRecordView": [
+      {
+        "direction": "ASC",
+        "property": "Id"
+      }
+    ],
+    "SeedTestRecordView": [
+      {
+        "direction": "ASC",
+        "property": "Id"
+      }
+    ],
+    "LivingRecordView": [
+      {
+        "direction": "ASC",
+        "property": "Id"
+      }
+    ],
+    "PlotHeaderRecordView": [
+      {
+        "direction": "ASC",
+        "property": "SurveyName"
+      }
+    ]
+  },
+
+  // substitute names for the drop down list of text grid data view types: {DataType: "DataRecordViewType", Title: "SubstituteName"}
+  "dataTypeNameSubstitutions": [
+    {
+      "DataType": "TaxonRecordView",
+      "Title": "Taxa"
+    }, // default "Taxa"
+    {
+      "DataType": "BotanicalRecordView",
+      "Title": "PGSIP Observations"
+    }, // default "Botanical Records"
+    {
+      "DataType": "SpecimenRecordView",
+      "Title": "Specimens"
+    }, // default "Specimens"
+    {
+      "DataType": "SeedAccessionRecordView",
+      "Title": "Seed Accessions"
+    }, // default "Seed Accessions"
+    {
+      "DataType": "SeedTestRecordView",
+      "Title": "Germination Tests"
+    }, // default "Germination Tests"
+    {
+      "DataType": "LivingRecordView",
+      "Title": "Living Collections"
+    }, // default "Living Collections"
+    {
+      "DataType": "PlotHeaderRecordView",
+      "Title": "Plot Headers"
+    } // default "Plot Headers"
+  ],
+
+  "defaultExploreView": "Grid", // the initial explore page view - "List" (or "Species"), "Grid" (or "Text"), "Images", "Maps" or "Help", default is "Grid"
+
+  "defaultMapTab": "Data" // the defaut tab to show when the map view is activated -  "Data", "Search", "Richness" or "Kml", default is "Data"
+}

@@ -1,0 +1,529 @@
+<?php
+$servername = "50.62.209.18:3306";
+$username = "cresolwebuser";
+$password = "cresolwebuser123";
+$dbname = "cresolwebsitelive";
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'PHPMailer/PHPMailerAutoload.php';
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$un = $_GET['u_name'];
+$ue = $_GET['u_email'];
+$unum = $_GET['u_number'];
+$um = $_GET['u_message'];
+
+$sql = "INSERT INTO contact_us (name, email, mobile, message)
+VALUES ('$un', '$ue', '$unum', '$um')";
+
+if ($conn->query($sql) === TRUE) {
+    
+
+
+if(isset($_REQUEST['contact'])){ 
+
+		$usrEmail =$_REQUEST['u_email']; 
+		$name =$_REQUEST['u_name'];
+		  $comment =$_REQUEST['u_message'];  
+		    $number =$_REQUEST['u_number'];  
+
+ 
+	      $message_body = '<DIV>
+						<TABLE style="BORDER-RIGHT: #ededed 10px solid; BORDER-TOP: #ededed 10px solid; MARGIN: 0px auto; BORDER-LEFT: #ededed 10px solid; WIDTH: 600px; BORDER-BOTTOM: #ededed 10px solid; FONT-FAMILY: Verdana, sans-serif; BACKGROUND-COLOR: #efefef" cellSpacing=0 cellPadding=0 border=600>
+						<TBODY>
+						<TR>
+						<TD>
+						<TABLE style="PADDING-LEFT: 20px; FONT-SIZE: 13px; MARGIN: 15px; COLOR: #0000ff" cellSpacing=0 cellPadding=0 width=600 border=0>
+						<TBODY>
+						<TR>
+						<TD style="PADDING-RIGHT: 5px; PADDING-LEFT: 20px; FONT-WEIGHT: bold; FONT-SIZE: 30px; PADDING-BOTTOM: 5px; MARGIN: 20px; COLOR: #0000ff; PADDING-TOP: 5px; FONT-FAMILY: Trebuchet MS, Verdana, sans-serif">Cresol</TD></TR>
+						<TR>
+						<TD style="PADDING-RIGHT: 20px; PADDING-LEFT: 20px; FONT-SIZE: 12px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; FONT-FAMILY: Trebuchet MS, Verdana, sans-serif" vAlign=top>Dear '.$name.'  ,<BR>
+						<br>
+						    Your new usrEmail :'.$usrEmail.' 
+						<br>
+						     Your Contact Number : '.$number.'
+						 <BR><BR>
+						<br>
+						'.$comment.'<BR><BR>
+						<BR>
+						<BR>Kind regards,<BR><b>Cresol Adminstrator</b>
+						</TD></TR>
+						<TR><TD><DIV style="FONT-SIZE: 10px; MARGIN: 10px 0px; WIDTH: 600px; COLOR: #0000ff; TEXT-ALIGN: center"></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>';
+						
+					 
+
+					if (strtoupper(substr(PHP_OS,0,3)=='WIN')) {
+					$eol="\r\n";
+					} elseif (strtoupper(substr(PHP_OS,0,3)=='MAC')) {
+					$eol="\r";
+					} else {
+					$eol="\n";
+					} 
+					
+	
+	                   $recemail='nitesh@cresol.in';
+						$subject = "Hello CRESOL, Visitor Arrived";
+						$mail = new PHPMailer();
+		                 
+                       $mail-> isSMTP();
+						$mail->SMTPAuth = false;     
+						$mail->SMTPSecure = 'none';
+						$mail->Host = 'relay-hosting.secureserver.net';   
+						$mail->Port = 25;
+						$mail->setFrom('cresolnitesh@gmail.com', 'CRESOL Lead', 0);
+						// Add a recipient
+						$mail->addAddress($recemail);
+						$mail->addCC('');
+						$mail->addBCC('nitesh@cresol.in');
+						// Set email format to HTML
+						$mail->isHTML(true);
+						// Mail subject
+						$mail->Subject = 'Lead Arrived';
+
+						$mail->Body    = $message_body;
+						// Send email
+						if(!$mail->send()) {
+						//echo "<script>alert('Message could not be sent. Mailer Error:  $mail->ErrorInfo');</script>";
+						echo 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo;
+						} else {
+						//echo "<script>alert('Message has been sent.');</script>";
+						echo 'Mail has been sent.';
+						}
+
+		}   
+	
+	
+	
+	
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+
+
+?>
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Cresol.in</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="og:description" content=""/>
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="css/bootstrap.css">
+  
+  
+  
+  <link rel="stylesheet" href="css/hover_effect.css">
+  
+    <link rel="stylesheet" href="css/aos_style.css">
+    <link rel="stylesheet" href="css/aos.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="css/style.css?version=1">
+  <link rel="stylesheet" type="text/css" href="css/ico_style.css">
+  
+  <link rel="stylesheet" type="text/css" href="hover_master/css/hover.css">
+  <link rel="stylesheet" type="text/css" href="hover_master/css/hover-min.css">
+  <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome.min.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/font-awesome-animation.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/font-awesome-animation.min.css">
+    
+
+    <style>
+      .thankyou-modal .modal-dialog h4{
+    font-size: 24px
+}
+
+.thankyou-modal img{
+     width: 40%;
+    margin-left: 30%;
+     margin-right: 30%;
+}
+
+.thankyou-modal h3{
+  font-size: 30px;
+  font-family: 'bitter';
+  text-align: center;
+  color: #4dad0c;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+
+.thankyou-modal p{
+  font-size: 16px;
+  color: #9e9d9d;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+.thankyou-modal .modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    background: #4dad0c;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+
+.thankyou-modal .modal-dialog {
+    width: 400px;
+    margin: 30px auto;
+}
+
+.thankyou-modal .modal-content{
+      border-radius: 3px;
+}
+
+
+.thankyou-modal .btn{
+      border-radius: 3px;
+      padding: 5px 10px;
+      font-size: 15px;
+      color:#4dad0c !important; 
+}
+
+
+@media screen and (max-width: 992px){
+
+
+.thankyou-modal .modal-dialog {
+    width: 80% !important;
+    margin: 30px auto;
+}
+
+}
+    </style>
+
+
+  </head>
+	<body>
+
+    <div class="container">
+ 
+  <!-- Trigger the modal with a button -->
+ 
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+
+    <div class="thankyou-modal">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          
+          <div class="modal-body">
+            
+            <img src="images/thankyou.gif">
+                
+            <h3 data-aos="flip-down">Thank You !</h3>
+            <p>for showing interest in Cresol</p>
+          </div>
+          <div class="modal-footer">
+            <center>
+              <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+            </center>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+	
+
+	<a class="quick-chat" style="display: none;">
+		<i class="fa fa-comments-o faa-tada animated fa-2x"></i>
+	</a>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<div id="header"></div>
+
+
+<div >
+    
+  
+</div>
+
+
+	
+	<header id="fh5co-header"    role="banner" style="background-image:url(images/header_bg_contact.jpg); padding-bottom: 2em; padding-top: 3em; margin-top: 7em;" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+
+  <div class="container">
+    <h2>Contact Us</h2>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+  </div>
+  
+  </header>
+
+  <div class="pagination-gray"> 
+     Homepage&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span class="active">Contact Us</span>
+  </div>
+
+
+
+	<div class="container">
+
+	<div class="how_we_work">
+		<div class="row">
+
+		<div class="testimonial contact-heading text-center ">
+		<h2 data-aos="flip-up" class="aos-init aos-animate mb-50">Get in Touch With Us</h2>
+
+		</div>
+			<div class='col-md-4 col-xs-4'>
+			    <img class="img-responsive aos-init aos-animate" src="images/contact_icon.png" alt="" data-aos="flip-down">
+
+               <div class="contact-heading">Mail Us</div>
+               <p class="contact-detail-text" ><a href="mailto:nitesh@cresol.in?Subject=">nitesh@cresol.in</a></p>
+			    
+			</div>
+
+			<div class='col-md-4 col-xs-4'>
+			    <img class="img-responsive aos-init aos-animate" src="images/contact_icon_2.png" alt="" data-aos="flip-down">
+			    <div class="contact-heading">Contact Us</div>
+			   <p class="contact-detail-text"><a href="tel:+91 8462039227" >+91 8462039227</a></p>
+			   
+			</div>
+
+			<div class='col-md-4 col-xs-4'>
+			    <img class="img-responsive aos-init aos-animate" src="images/contact_icon_3.png" alt="" data-aos="flip-down">
+			    <div class="contact-heading">Skype Us</div>
+			   <p class="contact-detail-text"><a href="skype:msp.nitesh?chat">msp.nitesh</a></p>
+			     <p></p>
+			</div>
+            
+			
+			
+		</div>
+		<div class="mid-line"></div>
+		</div>
+	</div>
+
+	<div class="blue-container"  style="background-image: url(images/contact_bg.jpg);     background-size: cover;">
+    <div class="container" >
+    	<div class="address-area" data-aos="fade-up">
+    	<div class="row">
+    		<div class="col-md-6">
+              <h3>Our Locations <i class="fas fa-map-marker-alt pull-right gray-i"></i></h3>
+              <div class="bold-divider"></div>
+
+              <div class="row">
+              	<div class="col-md-12">
+              		<img src="images/india_flag.png" /> <span class='couuntry-name'>India</span>
+              		<div class="address-detail">Software Technology Parks of India, Ministry of Communication and Information Technology, Govt. of India Near IIITM college, morena road Gwalior, Madhya Pradesh</div>
+                     <div><b>Corporate Office</b></div>
+              		<div class="address-detail">Office No. 3 CB-202/A Guru Harikrishan Plaza Naraina Ring Road, New Delhi - 110028, India </div>
+              	</div>
+              </div>
+               
+                <div class="row">
+              	<div class="col-md-12">
+              		<img src="images/uae_flag.png" /> <span class='couuntry-name'>Dubai</span>
+              		<div class="address-detail">P.O. Box 186025 Office no 224, 2nd Floor Hamriyah Customs Bldg, Hamriyah Port, Dubai, U.A.E
+
+                   </div>
+              	</div>
+              </div>
+
+             
+              <h3>Feel free to contact us <i class="fas fa-envelope-open pull-right gray-i"></i></h3>
+             <div class="bold-divider"></div>
+              <div class="contact-form">
+                <form action="" method="GET">
+              <div class="row">
+              	<div class="col-md-6"> 
+                  <i class="fas fa-user contact-inner-icon" ></i>
+              		<input type="text" name="u_name" class="form-control"  placeholder="Enter your name">
+              	</div>
+              	<div class="col-md-6"> 
+                <i class="fas fa-envelope contact-inner-icon" ></i>
+              		<input type="email" name="u_email" required class="form-control" placeholder="Enter your mail">
+              	</div>
+                <div class="col-md-6"> 
+                <i class="fas fa-envelope contact-inner-icon" ></i>
+                  <input type="text" name="u_number" class="form-control" required placeholder="Enter your Contact no">
+                </div>
+              	<div class="col-md-6"> 
+                  <i class="fas fa-pencil-alt contact-inner-icon" ></i>
+              		<textarea  name="u_message" placeholder="Write here..." required class="form-control"></textarea>
+              		<div> 
+                    <input class="btn btn-primary pull-right" type="submit" name="contact" value="Send"  ></div>
+              	</div> 
+              </div>
+               </form>
+              </div>
+              
+    		</div>
+    		<div class="col-md-6">
+    			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14311.970064156918!2d78.1561759!3d26.2619063!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c95315fd084c3d3!2sCRESOL!5e0!3m2!1sen!2sin!4v1529773357285" width="100%" height="700px"  frameborder="0" style="border:0" allowfullscreen></iframe>
+    		</div>
+    	</div>
+    	</div>
+    </div>
+
+    </div>
+	
+
+	
+
+
+
+	
+
+
+<div id="footer"></div>
+	</div>
+<div class="copyright-part">&copy; 2018-2019 Cresol.in All rights Reserved, Designed by cresol.in</div>
+	<div class="gototop js-top" style="display: none">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  
+  <!-- Bootstrap -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Waypoints -->
+  <script src="js/jquery.waypoints.min.js"></script>
+  <!-- Stellar Parallax -->
+  <script src="js/jquery.stellar.min.js"></script>
+  <!-- Carousel -->
+  <script src="js/owl.carousel.min.js"></script>
+  <!-- countTo -->
+  <script src="js/jquery.countTo.js"></script>
+  <!-- Magnific Popup -->
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/magnific-popup-options.js"></script>
+  <!-- Main -->
+  <script src="js/main.js"></script>
+  
+  <script src="js/aos.js"></script>
+    <script src="js/aos_function.js"></script>
+
+  <script>
+      AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+
+      setInterval(addItem, 300);
+
+      var itemsCounter = 1;
+      
+
+      function addItem () {
+        if (itemsCounter > 42) return;
+        var item = document.createElement('div');
+        item.classList.add('aos-item');
+        item.setAttribute('data-aos', 'fade-up');
+        item.innerHTML = '<div class="aos-item__inner"><h3>' + itemsCounter + '</h3></div>';
+        container.appendChild(item);
+        itemsCounter++;
+      }
+    </script>
+<script src="js/application_function.js"></script>
+
+    <script type="text/javascript">
+      function animate_string(id) 
+{
+    var element = document.getElementById(id);
+    var textNode = element.childNodes[0]; // assuming no other children
+    var text = textNode.data;
+
+setInterval(function () 
+{
+ text = text[text.length - 1] + text.substring(0, text.length - 1);
+  textNode.data = text;
+}, 100);
+}
+    </script>
+
+
+    
+
+
+  <script type="text/javascript">
+      
+     $(window).scroll(function(){
+
+       if ($(this).scrollTop()>100){
+         $('.top').hide();
+        
+        $('.fh5co-nav-toggle').css('top','4px');
+
+       }
+
+       else{
+         $('.top').show();
+         $('.fh5co-nav-toggle').css('top','71px');
+       }
+
+     });
+
+    </script>
+
+
+
+     <script> 
+$(document).ready(function(){ 
+  $("#header").load("header.html"); 
+  $("#footer").load("footer.html"); 
+
+   var pageURL = $(location).attr("href"); 
+   var thanks = pageURL.split('?');
+   if(thanks[1]!=null){
+      $('#myModal').modal('show');
+   }
+   
+
+  });
+</script> 
+
+
+
+	</body>
+</html>
+

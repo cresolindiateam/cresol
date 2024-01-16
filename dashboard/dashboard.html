@@ -1,0 +1,295 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>PGSIP</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+      <link href="/css/style.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <style>
+         .explore{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 45%;
+         margin: 0 auto;
+         padding: 1.5rem 1.5rem;
+         border: 1px solid transparent;
+         color: #fff;
+         background: #036;
+         font-size: 1.70rem;
+         font-weight: 700;
+         margin-top: 2rem;
+         -webkit-transition: all .2s linear;
+         transition: all .2s linear;}
+         .explore:hover,.explore:focus{display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 45%;
+         margin: 0 auto;
+         padding: 1.5rem 1.5rem;
+         border: 1px solid transparent;
+         color: #fff;
+         background: #036;
+         font-size: 1.70rem;
+         font-weight: 700;
+         margin-top: 2rem;
+         -webkit-transition: all .2s linear;
+         transition: all .2s linear;}
+         .summary_record{width: 70%;margin: 0 auto; padding: 10px;}  
+         @media (max-width: 768px) {
+         .d-flex{display: block;}
+         .summary_record{width: 100%;}
+         .newwidth{width: 100%!important;}
+         }
+         .carousel-caption{top: 350px;}
+         .center-section{ margin: 0 auto;
+         padding-top: 10px; padding-bottom: 10px;}
+         .bg-blue{background: #a8ecef}
+         .padding-top10{padding-top: 10px;}
+         .padding-bottom10{padding-bottom: 10px;}
+         hr{border: 2px solid #335a33!important; text-align: center; margin-top: 10px!important; margin-bottom: 10px!important;}
+         .taxa-right{color: black;}
+         .ranktext1{position: absolute;top: 58px;    margin-left: auto;
+         margin-right: auto;
+         left: 0;
+         right: 0;}
+         .ranktext2{position: absolute;top: 92px;    margin-left: auto;
+         margin-right: auto;
+         left: 0;
+         right: 0;}
+         .ranktext3{position: absolute;top: 129px;    margin-left: auto;
+         margin-right: auto;
+         left: 0;
+         right: 0;}
+         @media screen and (max-width: 768px) {
+         .explore{width: 75%}
+         .explore:hover,.explore:focus{width: 75%}
+         .ranktext1{top: 64px;}
+         .ranktext2{top: 99px;}
+         .ranktext3{top: 135px;}
+         hr{
+         width: unset;
+         }
+         }
+         @media (min-width: 768px) and (max-width: 992px) {
+         .ranktext1{top: 84px;}
+         .ranktext2{top: 119px;}
+         .ranktext3{top: 155px;}
+         }
+         table,tr,th,td{border:  1px solid white;}
+         table{background: #2d8bb9; color: white; width:100%; }
+         th,td{padding: 15px;}
+         .sec1{margin-bottom: 10px;}
+         .sec2{margin-bottom: 10px;}
+         .sec3{margin-bottom: 10px;}
+         .sec4{margin-bottom: 10px;}
+         .w3-grey.sec11 {
+         background: #b1eef0!important;
+         border-top-right-radius: 5px;
+         border-bottom-right-radius: 5px;
+         }
+         .w3-grey.sec22 {
+         background: #9ccce5!important;
+         border-top-right-radius: 5px;
+         border-bottom-right-radius: 5px;
+         }
+         .w3-grey.sec33 {
+         background: #34ace9!important;
+         border-top-right-radius: 5px;
+         border-bottom-right-radius: 5px;
+         }
+         .w3-grey.sec44 {
+         background: #4696bf!important;
+         border-top-right-radius: 5px;
+         border-bottom-right-radius: 5px;
+         }
+         .number{display: flex;
+         justify-content: space-between;
+         margin-top: 20px;
+         font-size: 20px;}
+         .w3-light-grey{background: white!important;}
+         .customa{color: black;text-decoration: underline;}
+      </style>
+   </head>
+   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+     <!-- <nav class="navbar navar-default navbar-fixed-top">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>                        
+               </button>
+               <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav navbar-left">
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="#">Explore</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="http://pgsip.mortonarb.org/Bol/pgsip/userguide">User Guide</a></li>
+                  <li class="active"><a href="data-dashboard.html"> Data Portal</a></li>
+                  <ul>
+               </div>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav1 navbar-nav navbar-right">
+                  <li><a href="#">Register</a></li>
+                  <li><a href="#">Login</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav> -->
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+         <div class="item active">
+               <img src="Content/Projects/pgsip/Images/img/banner.png" alt="New York" style="width:100%; height:33em;" />
+            <div class="carousel-caption">
+               <h3><strong class="font-85 image-heading">PGSIP DATA DASHBOARD</strong></h3>
+            </div>     
+      </div>
+      <!-- Container (TOUR Section) -->
+      <div id="" >
+         <div class="container">
+            <h3 class="text-left"><strong>Characterizing Garden Records</strong></h3>
+            <!-- 
+               <p>Contributing PGSIP gardens submit records that have been ranked for invasiveness based on the PGSIP Guidelines. These ranks correspond to
+                  policy actions that public gardens implement to prevent contributing to plant invasions as described below:
+               </p> -->
+            <p>Contributing PGSIP gardens submit their observations of plant taxa escaping from cultivation as a record for each taxon. Each record is ranked according to the PGSIP guidelines. The ranks (Watchlist, Potentially Invasive, & Invasive) are based on the gardens' observations of plant taxa escaping from cultivation within their property, and the rank "Assessed as Invasive" is based on a literature review conducted by a garden rather than actual observations of plant behavior within the garden. These ranks correspond to policy actions that public gardens utilize to help prevent plant taxa from becoming problematic or invasive in the future. <p> Many of the records in our database represent cases where public gardens have
+                     either removed species due to invasiveness or proactively prohibited
+                     their use due to risk assessment results. These species are generally
+                     recognized as invasive by invasive plant councils, state agencies, and
+                     other authorities. While it is good that public gardens are recognizing
+                     and not planting invasive plants, the true sentinel value of PGSIP lies in
+                     the records that are ranked "watchlist" or "potentially invasive". These
+                     species are either not on the radar of authorities at all or there is
+                     conflicting information about their invasiveness. As this
+                     database grows, regional trends will emerge that we can share with
+                     authorities and green industry stakeholders to flag the next invasive
+                     plant species before it becomes ubiquitous.</p>
+    	 
+         <iframe style="width:100%; height:40em;" src="https://gis.mortonarb.org/portal/apps/opsdashboard/index.html#/369466b3941941cbb96fed7b18d0faa4" title="description"></iframe>
+         <p style="text-align:right;">
+            <a href="https://gis.mortonarb.org/portal/apps/opsdashboard/index.html#/369466b3941941cbb96fed7b18d0faa4">For more information,Click here</a>
+         </p>
+         
+            <table>
+               <thead>
+                  <tr>
+                     <th style="text-align: center;">Rank</th>
+                     <th style="text-align: center;">Characteristics</th>
+        
+                  </tr>
+               </thead>
+               <tbody>
+                  <!-- background: linear-gradient(to bottom, red,#ff7f7f); -->
+                  <tr style="background: yellow;color:black;">
+                     <td>Watchlist</td>
+                     <td>First or isolated observations of spread
+                        potential
+                     </td>
+                    
+                  </tr>
+                  <!-- background: linear-gradient(to bottom,#ff7f7f,#FFD580) -->
+                  <tr style="background: orange;color:black;">
+                     <td>Potentially
+                        Invasive
+                     </td>
+                     <td>Intermediate spread on-site; may or may
+                        not be present in regional flora
+                     </td>
+                     
+                  </tr>
+                  <!-- linear-gradient(to bottom,#f3f35e8f,yellow) -->
+                  <tr style="background: red;color:black;">
+                     <td>Invasive</td>
+                     <td>Widespread both on site and in the region</td>
+                     
+                  </tr>
+                  <!-- linear-gradient(to bottom,#FFD580,#f3f35e8f) -->
+                  <tr style="background: red;color:black;">
+                     <td>Assessed as
+                        Invasive
+                     </td>
+                     <td>Likely to become widespread if
+                        introduced
+                     </td>
+                     
+                  </tr>
+                  <!--  <tr>
+                     <td>Invasive</td>
+                     <td>Widespread both on site and in the region</td>
+                     <td>Removed from garden; not planted, promoted or sold</td>
+                     </tr> -->
+               </tbody>
+            </table>
+
+        </div>
+
+       
+         </div>
+                  </p>
+      <div id="" class="container text-center">
+         <h3 class="text-left"><strong>Contextualizing Timelines: Public Garden Development & Invasion Biology</strong></h3>
+         <p style="text-align: left;">When thinking about public gardens and invasive plant species, it is important to understand that public gardens by-and-large
+            predate the concept of invasiveness.  Many of gardens that have submitted data to PGSIP were founded decades ago, with some having 100 or more years of history. The term "invasive species" was used for the first
+            time in publication in 1958. The research field of invasion biology began to develop in the 80's and gained traction in the 90's.
+            While early public garden botanists likely noticed introduced plants growing outside of cultivation, perhaps sometimes in large
+            numbers, research on the ecological impacts of these escapes did not exist until recently. Today, public gardens acknowledge
+            that in some cases, their institutions historically grew species that are now recognized as invasive. However, "in knowing better,
+            public gardens are committed to doing better" by removing known invasives, educating the public, and continually monitoring their
+            collections for potential signs of plant spread.
+         </div>
+      <!-- Container (The Band Section) -->
+      <div id="" class="container text-center">
+         <h3 class="text-left"><strong>Contributing Public Gardens</strong></h3>
+         <p>Public gardens that have registered with the database, can explore detailed, real time data by clicking the button below. 
+      <div id="" class="container text-center">
+         <a href="http://pgsip.mortonarb.org/Bol/pgsip/Explore?ShowSearchPAnel=0&grid=BotRecs" class="btn btn-primary explore">Explore Real Time Data</a>
+               </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      <div id="" >
+         <div class="container">
+            <h3 class="text-left"><strong>Case Study: Amur Cork Tree</strong></h3>
+            <p>Amur cork tree is currently the most reported taxon in the PGSIP database. A large deciduous tree with a broad, low-branched crown, Amur cork tree is stately in
+               gardens & parks (see photo). However, public gardens contributing to PGSIP are seeing it escape from cultivation. After connecting and
+               comparing notes related to their observations, the gardens participating in PGSIP found something curious: <span style="font-style: italic;">P. amurense</span> is widely reported as
+               dioecious in literature, meaning that male and female flowers occur on separate plants. However, observations at gardens indicate that its
+               reproductive biology may be more complicated. "Male" trees that were fruitless for years, sometimes decades, have been observed producing
+               fruit at some gardens, sometimes only on isolated branches. This indicates both that the reproductive biology of this taxon and its cultivated
+               varieties deserve more study and that management strategies that call for planting only male cultivars may not fully address its spread from
+               cultivation.
+            </p>
+         </div>
+      </div>
+      <!-- Container (TOUR Section) -->
+      <div id="" >
+         <div class="container">
+            <div class="row text-center">
+              <div class="col-sm-offset-2 col-sm-8 col-sm-offset-2 ">
+                  <div class="thumbnail">
+                     <img src="Content/Projects/pgsip/Images/img/banner.png" alt="San Francisco" width="100%" style="height:500px">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    
+   </body>
+</html>
+

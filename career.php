@@ -1,0 +1,489 @@
+
+<?php
+$servername = "50.62.209.18:3306";
+$username = "cresolwebuser";
+$password = "cresolwebuser123";
+$dbname = "cresolwebsitelive";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$rn = $_GET['r_name'];
+$rp = $_GET['r_profile'];
+$rm = $_GET['r_mobile'];
+$re = $_GET['r_radio'];
+$ry = $_GET['r_year'];
+$rmo= $_GET['r_month'];
+
+$rs = implode(',', $_GET['r_skills']);
+$rr = $_GET['r_resume'];
+$docc=($_FILES['r_resume']['name']);
+$doc =$date1.str_replace('','',$docc);
+$target = "resume_2/";
+$target = $target.basename($doc);
+
+$sql = "INSERT INTO resume (name, profile, mobile, experience, exp_year, exp_month, skills, resume)
+VALUES ('$rn', '$rp', '$rm', '$re', '$ry', '$rmo', '$rs', '$rr' )";
+
+if ($conn->query($sql) === TRUE) {
+    
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+
+
+?>
+
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Cresol.in</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta property="og:title" content=""/>
+   <meta property="og:image" content=""/>
+   <meta property="og:url" content=""/>
+   <meta property="og:site_name" content=""/>
+   <meta property="og:description" content=""/>
+   <meta name="twitter:title" content="" />
+   <meta name="twitter:image" content="" />
+   <meta name="twitter:url" content="" />
+   <meta name="twitter:card" content="" />
+   <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+   
+   
+   <link rel="stylesheet" href="css/bootstrap.css">
+   
+   <link rel="stylesheet" href="css/hover_effect.css">
+   
+    <link rel="stylesheet" href="css/aos_style.css">
+    <link rel="stylesheet" href="css/aos.css">
+   <!-- <link rel="stylesheet" href="css/style.css"> -->
+   <link rel="stylesheet" href="css/style.css?version=1">
+   <link rel="stylesheet" type="text/css" href="css/ico_style.css">
+   
+   <link rel="stylesheet" type="text/css" href="hover_master/css/hover.css">
+   <link rel="stylesheet" type="text/css" href="hover_master/css/hover-min.css">
+   <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome.min.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/font-awesome-animation.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13/web-fonts-with-css/css/font-awesome-animation.min.css">
+    <link rel="stylesheet" type="text/css" href="css/select2.css">
+    <link rel="stylesheet" type="text/css" href="css/select2.min.css">
+
+    
+
+   </head>
+	<body>
+
+	
+
+	<a class="quick-chat" style="display: none;">
+		<i class="fa fa-comments-o faa-tada animated fa-2x"></i>
+
+	</a>
+		
+
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<div id="header"></div>
+
+
+
+<div >
+    
+  
+</div>
+
+
+	<header id="fh5co-header"    role="banner" style="background-image:url(images/header_bg_service.jpg); padding-bottom: 2em; padding-top: 3em; margin-top: 7em;" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+
+       <div class="container">
+      <h2>Career</h2>
+
+      <p>we have worked to produce sites and elements for the web, Mobile, Desktop  that are not only at the height <br>of current design and functionality, but also reach the needs imagined by our clients.</p>
+   </div>
+	
+	</header>
+
+
+	<div class="pagination-gray"> 
+       Homepage&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span class="active">Services</span>
+   </div>
+
+
+  <div class="container"> 
+<div class="career-section">
+  
+    <div class="row">
+      <div class="col-md-6">
+        <div class="career-inner">
+         
+        
+          <h4>Fill your information here.</h4>
+         
+         <hr>
+        </div>
+
+        <form>
+         <div class="career-form">
+        <div class="row">
+         
+           <div class='col-md-6'>
+             <label>Your Name</label>
+             <input id="name" type="text" name="r_name" class="form-control" placeholder="Your full name">
+           </div>
+           <div class='col-md-6'>
+             <label>Your Profile </label>
+             <select class="form-control" id="profile" name='r_profile'>
+               <option value="Select">Select</option>
+               <option value="Web Developer">Web Developer</option>
+               <option value="Web Designer">Web Designer</option>
+               <option value="Soft. Developer">Soft. Developer</option>
+               <option value="Android Developer">Android Developer</option>
+               <option value="Tester">Tester</option>
+               <option value="Marketing">Marketing</option>
+               <option value="HR">HR</option>
+             </select>
+           </div>
+
+            
+           
+
+              <div class="col-md-6">
+             <label>Mobile Number</label>
+             <input id="mobile" type="number" name="r_mobile" class="form-control" placeholder="Enter Mobile Number">
+           </div>
+
+
+              <div class="col-md-6 radio-margin">
+            <div class="row">
+
+               <div class="col-md-5">
+                   <label class="container-radio" >Fresher
+             <input type="radio"  name="r_radio" checked="" id="radio-1" value="Fresher">
+             <span class="checkmark"></span>
+                </div>
+
+            <div class="col-md-6">
+              <label class="container-radio">Experienced
+             <input type="radio"  name="r_radio" id="radio-2" value="Experienced">
+             <span class="checkmark"></span>
+            </div>
+             
+               
+                </div>
+
+
+            
+           </div>
+
+          
+                
+
+                <div class="experience-section" style="display: none;">
+             <div class="col-md-6">
+                 <label>Years</label>
+                  <input id="years"  type="number" name="r_year" class="form-control" value="" min="0" placeholder="- -">
+               </div>
+                <div class="col-md-6">
+                 <label>Month</label>
+                 <input id="months" type="number" name="r_month" class="form-control" value="" min="0"
+                 placeholder="- -">
+               </div>
+             </div>
+
+               <div class="col-md-12" id="select-language">
+            <label>Select Languages</label>  
+  <select class="js-example-basic-multiple form-control" name="r_skills[]" multiple="multiple" placeholder="" id="select_language">
+
+  <option value="HTML">HTML</option>
+   <option value="CSS">CSS</option>
+   <option value="Java Script">Java Script</option>
+   <option value="PHP">PHP</option>
+   <option value="JAVA">JAVA</option>
+  <option value=".NET">.NET</option>
+  <option value="Other">Other</option>
+</select>
+             </div>
+             
+
+         
+
+
+        </div>
+        <hr>
+        <div class="form-footer">
+       <div class="row">
+          <div class="col-md-6">
+
+                <div >
+                    <label>Upload Resume</label>
+                   <input type="file"  style="width:100%" id="resume_file" name='r_resume'>
+                </div>
+               
+              </div>
+              <div class="col-md-6">
+                <input type="Submit" name="" class="btn btn-primary" style="width:100%" >
+              </div>
+       </div>
+       </div>
+        </div>
+
+        </form>
+
+
+      </div>
+      <div class="col-md-6 ">
+       <img src="images/career_img2.jpg">
+      </div>
+      
+    </div>
+    </div>
+</div>
+	
+   
+
+<div id="footer"></div>
+	</div>
+
+   <div class="copyright-part">&copy; 2018-2019 Cresol.in All rights Reserved, Designed by cresol.in</div>
+
+	<div class="gototop js-top" style="display: none">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	  <script src="js/jquery.min.js"></script>
+   <!-- jQuery Easing -->
+   
+   <!-- Bootstrap -->
+   <script src="js/bootstrap.min.js"></script>
+   <!-- Waypoints -->
+   <script src="js/jquery.waypoints.min.js"></script>
+   <!-- Stellar Parallax -->
+   <script src="js/jquery.stellar.min.js"></script>
+   <!-- Carousel -->
+   <script src="js/owl.carousel.min.js"></script>
+   <!-- countTo -->
+   <script src="js/jquery.countTo.js"></script>
+   <!-- Magnific Popup -->
+   <script src="js/jquery.magnific-popup.min.js"></script>
+   <script src="js/magnific-popup-options.js"></script>
+   <!-- Main -->
+   <script src="js/main.js"></script>
+   
+   <script src="js/aos.js"></script>
+    <script src="js/aos_function.js"></script>
+
+   <script>
+      AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+
+      setInterval(addItem, 300);
+
+      var itemsCounter = 1;
+      
+
+      function addItem () {
+        if (itemsCounter > 42) return;
+        var item = document.createElement('div');
+        item.classList.add('aos-item');
+        item.setAttribute('data-aos', 'fade-up');
+        item.innerHTML = '<div class="aos-item__inner"><h3>' + itemsCounter + '</h3></div>';
+        container.appendChild(item);
+        itemsCounter++;
+      }
+    </script>
+<script src="js/application_function.js"></script>
+
+    <script type="text/javascript">
+      function animate_string(id) 
+{
+    var element = document.getElementById(id);
+    var textNode = element.childNodes[0]; // assuming no other children
+    var text = textNode.data;
+
+setInterval(function () 
+{
+ text = text[text.length - 1] + text.substring(0, text.length - 1);
+  textNode.data = text;
+}, 100);
+}
+    </script>
+
+
+    
+
+
+      <script type="text/javascript">
+      
+     $(window).scroll(function(){
+
+       if ($(this).scrollTop()>100){
+         $('.top').hide();
+        
+        $('.fh5co-nav-toggle').css('top','4px');
+
+       }
+
+       else{
+         $('.top').show();
+         $('.fh5co-nav-toggle').css('top','71px');
+       }
+
+     });
+
+    </script>
+
+
+        <script> 
+$(document).ready(function(){
+  
+  $("#header").load("header.html"); 
+  $("#footer").load("footer.html"); 
+  });
+</script> 
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#radio-1').click(function() {
+      
+    $('.experience-section').hide()
+    });
+
+
+     $('#radio-2').click(function() {
+      
+    $('.experience-section').show()
+    });
+
+
+    });
+
+
+</script>
+
+<script type="text/javascript" src="js/select2.full.js"></script>
+  <script type="text/javascript" src="js/select2.full.min.js"></script>
+  <script type="text/javascript" src="js/select2.js"></script>
+  <script type="text/javascript" src="js/select2.min.js"></script>
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('.js-example-basic-multiple').select2({
+       placeholder: "Select language"
+       
+    });
+
+});
+
+</script>
+
+<script type="text/javascript">
+
+  $('#profile').change(function(){
+
+    var x=$('#profile').val();
+    if(x=='hr'){
+      $('#select-language').hide();
+    }
+
+    else{
+          $('#select-language').show();
+    }
+
+  });
+
+
+
+  
+
+   
+</script>
+
+
+<script type="text/javascript">
+  
+function submitDetail(assemblyNumber){
+
+  var name = $("#name").val();
+  var mobile = $("#mobile").val();
+  var years = $("#years").val();
+  var months = $("#months").val();
+  //var radio_fresher = $("#radio-1").val();
+
+  var resume_file = $("#resume_file").val();
+  var select_language = $("#select_language").val();
+  var profile = $("#profile").val();
+
+  //var radio_fresher = $('input[name=radio]:checked', '#myForm').val()
+  var radio_fresher = $("input[name=radio]:checked").val(); 
+
+  // alert(name);
+  // alert(mobile);
+  // alert(years);
+  // alert(months);
+  // alert(select_language);
+  // alert(profile);
+  alert(radio_fresher);
+
+
+
+  
+  
+  // $.ajax({
+  //   url:"AjaxGetAssemblyUserList.php",
+  //   data:{AssemblyNumber:assemblyNumber},
+  //   type:'post',
+  //   success:function(response){
+  //     console.log(response);
+  //     var arr = JSON.parse(response);
+  //     if(arr.length>0){
+  //        arr.forEach(function(data){
+  //           $('#select_username').append($("<option/>", {value: data.username,text: data.username}));
+  //        });
+  //     }
+  //   }
+  // });
+}
+
+
+
+</script>
+
+<!-- <script type="text/javascript">
+   
+
+
+  
+$('#profile').change(function(){
+  
+   alert(profilevalue);
+  if($(profilevalue=='0'){
+    alert('asdasd');
+  }
+});
+
+
+</script> -->
+   
+
+	</body>
+</html>
+
