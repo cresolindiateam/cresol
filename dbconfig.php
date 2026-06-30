@@ -16,10 +16,10 @@ function db_connect(){
 
       // Create connection
   $conn= mysqli_connect($server,$user,$pass,$database);
-  return $conn;
   if(!$conn){
-  die("Connection failed: " . mysqli_connect_error());
-}
+    die("Connection failed: " . mysqli_connect_error());
+  }
+  return $conn;
 }
 
 
